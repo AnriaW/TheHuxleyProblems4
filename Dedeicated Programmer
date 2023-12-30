@@ -1,0 +1,60 @@
+#include <stdio.h>
+
+void contagem(int dia, int linhas, int *metaLinhas, int programas, int *metaProgramas, int *diaProdutivo, int *maislinhas) {
+    if (dia > 7) {
+        return;
+    }
+    
+    scanf("%d %d", &programas, &linhas);
+
+    if (programas >= 5) {
+        (*metaProgramas)++;
+    }
+    if (linhas >= 100) {
+        (*metaLinhas)++;
+    }
+    if (linhas > (*maislinhas)) {
+        (*maislinhas) = linhas;
+        (*diaProdutivo) = dia;
+    }
+
+    contagem(dia + 1, linhas, metaLinhas, programas, metaProgramas, diaProdutivo, maislinhas);
+}
+
+int main() {
+    int dia = 1;
+    int diaProdutivo = 0;
+    int maislinhas = 0;
+    int metaLinhas = 0;
+    int metaProgramas = 0;
+    int programas;
+    int linhas;
+
+    contagem(dia, linhas, &metaLinhas, programas, &metaProgramas, &diaProdutivo, &maislinhas);
+
+    printf("QUANTIDADE DE DIAS QUE ATINGIU MEDIA DE PROGRAMAS: %d\n", metaProgramas);
+    printf("QUANTIDADE DE DIAS QUE ATINGIU MEDIA DE LINHAS: %d\n", metaLinhas);
+    printf("DIA QUE MAIS PRODUZIU:");
+
+    if(diaProdutivo == 1){
+        printf(" DOMINGO");
+    }
+    else if(diaProdutivo == 2){
+        printf(" SEGUNDA");
+    }   
+    else if(diaProdutivo == 3){
+        printf(" TERÇA");
+    }   
+    else if(diaProdutivo == 4){
+        printf(" QUARTA");
+    }
+    else if(diaProdutivo == 5){
+        printf(" QUINTA");
+    }
+    else if(diaProdutivo == 6){
+        printf(" SEXTA");
+    }
+    else{
+        printf(" SABADO");
+    }
+}
