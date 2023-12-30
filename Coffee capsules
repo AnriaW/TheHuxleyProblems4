@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int caso(int n1, int n2){
+    if(n1==0){
+        int cup=(n2*2)/7;
+        printf("%d\n%d\n",n2,cup);
+    }else{
+        char t;
+        int num;
+        scanf("%d %c ", &num, &t);
+
+        if(t=='p' || t=='P'){
+            return caso(n1-1,n2=n2 +(num*10));
+        }
+        else if(t=='g' || t=='G'){
+            return caso(n1-1,n2=n2+(num*16));
+        }
+    }
+
+
+}
+
+int main(){
+    caso(7,0);
+
+
+
+    return 0;
+}
