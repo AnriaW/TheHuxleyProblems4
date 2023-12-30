@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void resp(int n1, int n2, int n3,int n4){
+    if(n1<n2*n3*n4){
+      printf("Falso");
+      return 0;
+    }
+    if(n1!=n2*n3*n4) return resp(n1, n2+1, n3+1, n4+1);
+    if(n1==n2*n3*n4){
+        printf("%d * %d * %d = %d\nVerdadeiro\n", n2,n3,n4,n1);
+    }
+
+}
+
+int main(){
+    int n1,n2,n3,n4;
+    scanf("%d", &n1);
+    n2=1;
+    n3=n2+1;
+    n4=n3+1;
+    resp(n1,n2,n3,n4);
+
+
+    return 0;
+}
