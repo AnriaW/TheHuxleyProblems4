@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int cases(int n1, int n2){
+
+
+ if(n1<n2){
+	return 0;
+ }
+ if (n1%n2==0){
+	if(n2%3==0){
+		return 1 + cases(n1,n2+1);
+	}
+	return cases(n1,n2+1) ;
+ }
+ else{
+	return cases(n1,n2+1);
+ }
+ 
+}
+int main() {
+
+   int n1;
+   scanf("%d", &n1);
+  int many=cases(n1,1);
+	 if (many>0){
+		printf("%d", many);
+
+	 }
+	 else{
+		printf("O numero nao possui divisores multiplos de 3!\n");
+	 }
+   
+   
+    return 0;
+}
