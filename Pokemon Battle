@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <math.h>
+
+int treta(int life_clodes, int Life_bezaliel, int dmg_clodes, int dmg_bezaliel) {
+
+if (life_clodes > 0)
+    {
+    if (ceil((double) life_clodes / dmg_bezaliel) < ceil((double) Life_bezaliel / dmg_clodes)) dmg_clodes = dmg_clodes + 50;
+            
+    else Life_bezaliel -= dmg_clodes;
+            
+    if (Life_bezaliel > 0) life_clodes -= dmg_bezaliel;
+        
+    if (life_clodes > 0 && Life_bezaliel > 0) return treta(life_clodes, Life_bezaliel, dmg_clodes, dmg_bezaliel);
+            
+    else 
+    {
+        if (life_clodes > Life_bezaliel) printf("Clodes\n");
+
+        else if (Life_bezaliel > life_clodes) printf("Bezaliel\n");
+    }
+    
+        return 0;
+
+    }
+    return 0;
+}
+
+void repet(int v1) {
+
+    int life_clodes, Life_bezaliel, dmg_clodes, dmg_bezaliel;
+
+    if (v1 > 0) {
+        scanf("%d %d %d %d", &life_clodes, &Life_bezaliel, &dmg_clodes, &dmg_bezaliel);
+        treta(life_clodes, Life_bezaliel, dmg_clodes, dmg_bezaliel);
+        repet(v1 - 1);
+    }
+}
+
+int main() {
+
+    int fight_num;
+    scanf("%d", &fight_num);
+    repet(fight_num);
+
+    return 0;
+}
