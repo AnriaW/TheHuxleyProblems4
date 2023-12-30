@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void multiplicaN(int n, int a, int b){
+   
+     if(a<=b){
+        if(a%n==0){
+            printf("%d\n", a);
+        }
+        return multiplicaN(n, a+1, b);
+     }
+     if(n>b){
+        printf("INEXISTENTE");
+     }
+}
+
+int main(){
+    int n, a, b;
+    scanf("%d%d%d", &n, &a, &b);
+  multiplicaN(n, a, b);
+
+    return 0;
+}
